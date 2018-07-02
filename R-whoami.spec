@@ -4,7 +4,7 @@
 #
 Name     : R-whoami
 Version  : 1.1.2
-Release  : 1
+Release  : 2
 URL      : https://cran.r-project.org/src/contrib/whoami_1.1.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/whoami_1.1.2.tar.gz
 Summary  : Username, Full Name, Email Address, 'GitHub' Username of the
