@@ -4,19 +4,25 @@
 #
 Name     : R-whoami
 Version  : 1.2.0
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/whoami_1.2.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/whoami_1.2.0.tar.gz
 Summary  : Username, Full Name, Email Address, 'GitHub' Username of the
 Group    : Development/Tools
 License  : MIT
+Requires: R-cli
+BuildRequires : R-cli
 BuildRequires : R-httr
 BuildRequires : R-jsonlite
 BuildRequires : buildreq-R
 
 %description
-the current user's email address and 'GitHub' username,
-    using various sources of system and configuration information.
+# whoami
+[![Linux Build Status](https://travis-ci.org/r-lib/whoami.svg?branch=master)](https://travis-ci.org/r-lib/whoami)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/r-lib/whoami?svg=true)](https://ci.appveyor.com/project/gaborcsardi/whoami)
+[![](http://www.r-pkg.org/badges/version/whoami)](http://www.r-pkg.org/pkg/whoami)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/whoami)](http://www.r-pkg.org/pkg/whoami)
+[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/whoami/master.svg)](https://codecov.io/github/r-lib/whoami?branch=master)
 
 %prep
 %setup -q -c -n whoami
@@ -26,11 +32,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536687812
+export SOURCE_DATE_EPOCH=1552837911
 
 %install
+export SOURCE_DATE_EPOCH=1552837911
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1536687812
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -65,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library whoami|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  whoami || :
 
 
 %files
@@ -93,3 +98,10 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/whoami/help/whoami.rdx
 /usr/lib64/R/library/whoami/html/00Index.html
 /usr/lib64/R/library/whoami/html/R.css
+/usr/lib64/R/library/whoami/tests/testthat.R
+/usr/lib64/R/library/whoami/tests/testthat/test-email.R
+/usr/lib64/R/library/whoami/tests/testthat/test-fallbacks.R
+/usr/lib64/R/library/whoami/tests/testthat/test-fullname.R
+/usr/lib64/R/library/whoami/tests/testthat/test-gh-username.R
+/usr/lib64/R/library/whoami/tests/testthat/test-memoize.R
+/usr/lib64/R/library/whoami/tests/testthat/test-username.R
