@@ -4,7 +4,7 @@
 #
 Name     : R-whoami
 Version  : 1.3.0
-Release  : 38
+Release  : 39
 URL      : https://cran.r-project.org/src/contrib/whoami_1.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/whoami_1.3.0.tar.gz
 Summary  : Username, Full Name, Email Address, 'GitHub' Username of the
